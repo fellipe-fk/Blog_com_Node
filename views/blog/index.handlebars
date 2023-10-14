@@ -1,0 +1,46 @@
+<div class="card">
+  <div class="card-body bg-dark">
+    <div class="jumbotron">
+      <h1 class="display-4 text-white">Olá, mundo!</h1>
+      <p class="lead text-white">Blog feito com Node, Bootstrap, Mongo e outras ferramentas, blog 100% funcional</p>
+      <hr class="my-4">
+      <p class="text-white">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat voluptas explicabo ad deserunt architecto nisi, consequuntur placeat modi, laboriosam facilis omnis, iure eos quisquam earum voluptatibus impedit cupiditate aperiam perspiciatis Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis ipsa atque assumenda! Vel fugiat cumque id. Unde aspernatur iure explicabo quidem dolores fugit perferendis ad numquam iste, sunt minus. Maxime!</p>
+      {{!-- <a class="btn btn-primary btn-lg" href="#" role="button">Crie uma conta</a> --}}
+    </div>
+  </div>
+</div>
+<br>
+<h3>Ultimas noticias: </h3>
+<hr>
+<div class="row">
+  {{#each postagens}}
+    <div class="col-md-6 mt-3"> 
+      <div class="card">
+        <div class="card-header">
+          Destaque {{categoria.nome}}
+        </div>
+        <div class="card-body">
+          <form action="/post/{{_id}}" method="get">
+            <h2 class="card-title">{{titulo}}</h2>
+            <div>
+              <h6 class="d-inline">Descrição: </h6>
+              <p class="card-text d-inline">{{descricao}}</p>
+            </div>
+            <hr>
+            <p>{{conteudo}}</p>
+            <br>
+            <a href="/post/{{titulo}}"><button type="submit" class="btn btn-primary btn-lg">Ver mais</button></a>
+          </form>
+        </div>
+      </div>
+    </div>
+  {{else}}
+    <h5>nao a noticias no momento</h5>
+  {{/each}}
+</div>
+<footer class="bg-dark text-white py-1">
+  <div class="container text-center">
+    <h4>Blog feito com Node.js</h4>
+    <p>Seu conteúdo informativo sobre Node.js.</p>
+  </div>
+</footer>

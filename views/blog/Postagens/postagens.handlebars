@@ -1,0 +1,25 @@
+<h3>Lista de postagens: </h3>
+<hr>
+<a href="/blog/postagens/add"><button class="btn btn-success">Adicionar postagens</button></a>
+
+<div class="row">
+    {{#each postagens}}
+        <div class="col-md-6 mt-3">
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h4>{{titulo}}</h4>
+                    <p>Descriçao: {{descricao}}</p>
+                    <small>Data: {{data}}</small>
+                    <small>Categoria: {{categoria.nome}}</small><br>
+                    <a href="/blog/postagens/edit/{{_id}}"><button class="btn btn-success mt-3">Editar postagens</button></a>
+                    <form action="/blog/postagens/deletar/{{_id}}" method="get">
+                        <input type="hidden" name="id" value="{{_id}}">
+                        <button type="submit" class="btn btn-danger mt-2">Deletar postagem</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    {{else}}
+        <p>Nenhuma postagem resgistrada</p>
+    {{/each}}
+</div>
